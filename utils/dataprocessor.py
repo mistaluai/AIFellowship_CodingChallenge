@@ -28,9 +28,3 @@ class DataProcessor:
         valid_data = data.iloc[valid-1]
         test_data = data.iloc[tstid-1]
         return train_data, valid_data, test_data
-
-# dp = DataProcessor(images_root='../data/images',
-#                    labels_file='../data/imagelabels.mat',
-#                    splits_file='../data/setid.mat')
-# train_data, valid_data, test_data = dp.get_data()
-# print(train_data.shape, valid_data.shape, test_data.shape)

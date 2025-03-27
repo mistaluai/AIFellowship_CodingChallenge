@@ -4,7 +4,7 @@ from torchvision import models
 
 
 class ResNet50(nn.Module):
-    def __init__(self, fc_layer=None, num_classes=102, freeze_backbone=True) -> None:
+    def __init__(self, fc_layer=None, num_classes=103, freeze_backbone=True) -> None:
         super(ResNet50, self).__init__()
         self.model = self._init_backbone(
             models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V2, progress=False),
@@ -27,12 +27,6 @@ class ResNet50(nn.Module):
             *fc_layer
         )
         return backbone
-
-    def get_layer(self, layer_name: str):
-        try:
-            return getattr(self.model, layer_name)
-        except AttributeError as e:
-            raise AttributeError(f"Layer '{layer_name}' not found in the model.") from e
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.model(x)

@@ -4,7 +4,7 @@ from torch import nn
 import torch.nn.functional as F
 
 class WeightedCrossEntropyLoss(nn.Module):
-    def __init__(self, dataset, device, num_classes=102):
+    def __init__(self, dataset, device, num_classes=103):
         super().__init__()
         self.device = device
         self.num_classes = num_classes

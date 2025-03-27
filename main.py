@@ -6,13 +6,12 @@ from model import ResNet50
 from tester import Evaluator
 from trainer import Trainer
 from utils.dataprocessor import DataProcessor
-from utils.plotter import plot_training_val, plot_test
+from utils.plotter import plot_test
 from utils.random_seed import set_seed
 import torch
 import torch.optim as optim
 from weighted_loss import WeightedCrossEntropyLoss
 import torch.nn as nn
-import torchvision.models as models
 import torchvision.transforms.v2 as T
 
 ##Seed
@@ -41,8 +40,6 @@ train_dataset = FlowersDataset(train_data, transform=train_transforms)
 val_dataset = FlowersDataset(val_data)
 test_dataset = FlowersDataset(test_data)
 
-mixup_alpha = 0.5
-cutmix_alpha = 0.5
 batch_size = 250
 num_workers = 4
 
